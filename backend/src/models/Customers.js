@@ -7,40 +7,46 @@
     countryOfResidence
     */
 
-    import { Schema, model, ObjectId } from "mongoose";
+import { Schema, model} from "mongoose";
 
-    const customersSchema = new Schema(
-        {
-    
-            fullName: {
-                type: String,
-                require: true,
-            },
-    
-            email: {
-                type: String,
-                require: true,
-            },
-    
-            passowrd: {
-                type: String,
-                require: true,
-            },
-    
-            age: {
-                type: Number,
-                require: true,
-            },
-            
-            countryOfResidence: {
-                type: String,
-                require: true,
-            },
+const customersSchema = new Schema(
+    {
 
-            imageCustomer: {
-                type: String,
-                require: true,
-            },
-        });
-    
-    export default model("Customers", customersSchema);
+        fullName: {
+            type: String,
+            require: true,
+        },
+
+        email: {
+            type: String,
+            require: true,
+        },
+
+        passowrd: {
+            type: String,
+            require: true,
+        },
+
+        age: {
+            type: Number,
+            require: true,
+        },
+
+        countryOfResidence: {
+            type: String,
+            require: true,
+        },
+
+        imageCustomer: {
+            type: String,
+            require: true,
+        },
+    },
+    {
+        timestamps: true,
+        strict: false,
+    }
+
+);
+
+export default model("Customers", customersSchema);

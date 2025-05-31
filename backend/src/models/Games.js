@@ -6,7 +6,7 @@
     minimumBet
     */
 
-import { Schema, model, ObjectId } from "mongoose";
+import { Schema, model } from "mongoose";
 
 const gamesSchema = new Schema(
     {
@@ -22,19 +22,23 @@ const gamesSchema = new Schema(
         },
 
         maximunBet: {
-            type: Number,
+            type: String,
             require: true,
         },
 
         minimunBet: {
-            type: Number,
+            type: String,
             require: true,
         },
 
         imageGame: {
-            type: String,
-            require: true,
+            type: String
         },
-    });
+    },
+    {
+        timestamps: true,
+        strict: false,
+    }
+);
 
 export default model("Games", gamesSchema);

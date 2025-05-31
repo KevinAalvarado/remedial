@@ -2,6 +2,8 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import gamesRoutes from "./src/routes/Rgames.js";
+import customersRoutes from "./src/routes/Rcustomers.js";
 
 // Creo una constante que es igual a la libreria que importé
 const app = express();
@@ -17,14 +19,13 @@ app.use(
     })
   );
 
-// Aplicar middleware CORS con las opciones configuradas
-app.use(cors(corsOptions));
 
 //Que acepte datos en json
 app.use(express.json());
 
 // Definir las rutas de las funciones que tendrá la página web
-
+app.use("/api/games", gamesRoutes);
+app.use("/api/customers", customersRoutes);
 
 // Exporto la constante para poder usar express en otros archivos
 export default app;
